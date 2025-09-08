@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Multiplication Calculator</title>
+    <title>DGL 213 Calculator</title>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
   </head>
   <body>
@@ -13,15 +13,22 @@
     </header>
   
     <main>
-      <input type="text" id="multiplier" value="2">
-      X 
-      <input type="text" id="multiplicand" value="2">
+      <input type="number" id="num1" value="2">
+      
+      <select id="operation">
+        <option value="add">+</option>
+        <option value="subtract">-</option>
+        <option value="multiply" selected>×</option>
+        <option value="divide">÷</option>
+      </select>
+      
+      <input type="number" id="num2" value="2">
       = 
-      <span id="product">4</span>
+      <span id="result">4</span>
     </main>
   
     <footer>
-      <p>Multiplication Calculator.</p>
+      <p>Simple Calculator supporting +, -, ×, ÷</p>
     </footer>
 
     <script src="main.js"></script>

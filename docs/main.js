@@ -1,16 +1,43 @@
 console.log('main.js');
+
 (() => {
-    console.log('Here we are!')
-    window.addEventListener("load", (event) => {
-        const multiplier = document.getElementById( 'multiplier' );
-        const multiplicand = document.getElementById( 'multiplicand' );
-        const product = document.getElementById( 'product' );
+    console.log('Calculator script loaded!');
+
+    window.addEventListener("load", () => {
+        const num1 = document.getElementById('num1');
+        const num2 = document.getElementById('num2');
+        const operation = document.getElementById('operation');
+        const result = document.getElementById('result');
 
         const update = () => {
-            product.innerHTML = parseFloat( multiplier.value ) * parseFloat( multiplicand.value );
+            const a = parseFloat(num1.value);
+            const b = parseFloat(num2.value);
+            let res = 0;
+
+            switch (operation.value) {
+                case 'add':
+                    res = a + b;
+                    break;
+                case 'subtract':
+                    res = a - b;
+                    break;
+                case 'multiply':
+                    res = a * b;
+                    break;
+                case 'divide':
+                    res = b !== 0 ? a / b : 'Error (÷0)';
+                    break;
+            }
+
+            result.innerHTML = res;
         };
 
-        multiplier.addEventListener("input", update);
-        multiplicand.addEventListener("input", update);
+        // Listen to changes
+        num1.addEventListener("input", update);
+        num2.addEventListener("input", update);
+        operation.addEventListener("change", update);
+
+        // Initialize result
+        update();
     });      
 })();
